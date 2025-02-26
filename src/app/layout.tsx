@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Didot&display=swap" rel="stylesheet" />
+        
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
