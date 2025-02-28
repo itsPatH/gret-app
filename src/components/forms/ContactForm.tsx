@@ -12,15 +12,15 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 bg-lightLavender rounded-lg shadow-md">
-      <h2 className="text-center text-color2 text-2xl font-semibold mb-4 font-serif">Formulario de contacto</h2>
+    <div className="max-w-lg p-4 mx-auto rounded-lg shadow-md bg-lightLavender">
+      <h2 className="mb-4 font-serif text-2xl font-semibold text-center text-color2">Formulario de contacto</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Nombre"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-color1"
+          className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-color2"
           required
         />
         <input
@@ -28,17 +28,17 @@ const ContactForm: React.FC = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-color1"
+          className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-color2"
           required
         />
         <textarea
           placeholder="Mensaje"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-color1 h-32"
+          className="h-32 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-color2"
           required
         />
-        <button type="submit" className="bg-color1 text-white p-2 rounded hover:bg-color2 transition duration-300">
+        <button type="submit" className="p-2 text-white transition duration-300 rounded bg-color4 hover:bg-color2">
           Enviar
         </button>
       </form>
