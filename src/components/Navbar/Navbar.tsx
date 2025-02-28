@@ -7,15 +7,14 @@ import { Menu, X } from "lucide-react";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const whatsappLink = "https://wa.me/584121176817"; // Enlace directo a WhatsApp
+  const whatsappLink = "https://wa.me/584121176817";
 
   return (
     <nav className="fixed top-0 z-50 w-full shadow bg-color5">
       <div className="flex items-center justify-between p-3 mx-auto max-w-7xl">
         {/* Logo */}
         <h1 className="font-serif text-2xl text-color2">LOGO</h1>
-        
-        {/* Botón del menú hamburguesa */}
+
         <button
           className="md:hidden text-color2 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -39,7 +38,6 @@ const NavBar: React.FC = () => {
         </ul>
       </div>
       
-      {/* Menú desplegable en móviles */}
       {isOpen && (
         <ul className="p-4 space-y-4 text-center md:hidden bg-color5">
           <li><Link href="/" className="block font-serif text-color2 hover:text-color4">Inicio</Link></li>
