@@ -21,31 +21,100 @@ const NavBar: React.FC = () => {
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+<<<<<<< HEAD
         
         <ul className="hidden space-x-4 md:flex">
           <li><Link href="/" className="font-serif text-color2 hover:text-color4">Inicio</Link></li>
           <li><Link href="/contact" className="font-serif text-color2 hover:text-color4">Contacto</Link></li>
           <li><Link href="/location" className="font-serif text-color2 hover:text-color4">Ubicación</Link></li>
           <li><Link href="/about" className="font-serif text-color2 hover:text-color4">Acerca de mí</Link></li>
+=======
+
+        {/* Menú en pantallas grandes */}
+        <ul className="hidden space-x-4 md:flex items-center">
+          <li>
+            <Link href="/" className="font-serif text-color2 hover:text-color4">
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="font-serif text-color2 hover:text-color4"
+            >
+              Contacto
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/location"
+              className="font-serif text-color2 hover:text-color4"
+            >
+              Ubicación
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/about"
+              className="font-serif text-color2 hover:text-color4"
+            >
+              Acerca de mí
+            </Link>
+          </li>
+>>>>>>> 7dfc2327d801b25f4db7b65cded7e855052655f2
           <li>
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="text-color2 hover:bg-color4 hover:text-white">
+              <Button
+                variant="outline"
+                className="text-color2 hover:bg-color4 hover:text-white"
+              >
                 AGENDA
               </Button>
             </a>
           </li>
         </ul>
       </div>
-      
+
       {isOpen && (
-        <ul className="p-4 space-y-4 text-center md:hidden bg-color5">
-          <li><Link href="/" className="block font-serif text-color2 hover:text-color4">Inicio</Link></li>
-          <li><Link href="/contact" className="block font-serif text-color2 hover:text-color4">Contacto</Link></li>
-          <li><Link href="/location" className="block font-serif text-color2 hover:text-color4">Ubicación</Link></li>
-          <li><Link href="/about" className="block font-serif text-color2 hover:text-color4">Acerca de mí</Link></li>
+        <ul className="p-4 space-y-4 text-center md:hidden bg-color5 flex flex-col items-center">
+          <li>
+            <Link
+              href="/"
+              className="block font-serif text-color2 hover:text-color4"
+            >
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="block font-serif text-color2 hover:text-color4"
+            >
+              Contacto
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/location"
+              className="block font-serif text-color2 hover:text-color4"
+            >
+              Ubicación
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/about"
+              className="block font-serif text-color2 hover:text-color4"
+            >
+              Acerca de mí
+            </Link>
+          </li>
           <li>
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="w-full text-color2 hover:bg-color4 hover:text-white">
+              <Button
+                variant="outline"
+                className="w-full text-color2 hover:bg-color4 hover:text-white"
+              >
                 AGENDA
               </Button>
             </a>
