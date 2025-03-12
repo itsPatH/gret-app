@@ -22,7 +22,6 @@ const NavBar: React.FC = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {/* Menú en pantallas grandes */}
         <ul className="hidden space-x-4 md:flex">
           <li><Link href="/" className="font-serif text-color2 hover:text-color4">Inicio</Link></li>
           <li><Link href="/contact" className="font-serif text-color2 hover:text-color4">Contacto</Link></li>

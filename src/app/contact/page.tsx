@@ -1,9 +1,12 @@
-import React from 'react';
-import ContactForm from '../../components/forms/ContactForm';
+import React from "react";
+import ContactForm from "../../components/forms/ContactForm";
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-lightLavender">
+    <div
+      className="flex items-center justify-center min-h-screen bg-center bg-cover"
+      style={{ backgroundImage: "url('/images/formbackground.jpg')" }}
+    >
       <ContactForm />
     </div>
   );
