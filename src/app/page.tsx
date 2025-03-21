@@ -1,4 +1,4 @@
-import { CarouselPlugin } from '@/components/carousel/carousel';
+import { CarouselPlugin } from '@/components/Carousel/Carousel';
 
 export default function Home() {
   return (
