@@ -14,7 +14,7 @@ const ContactForm: React.FC = () => {
   return (
     <div className="max-w-lg p-6 px-4 mx-auto bg-white shadow-lg w-[70%] sm:max-w-xl md:max-w-2xl rounded-xl shadow-gray-300 sm:px-6">
       <h2 className="mb-4 font-serif text-2xl font-semibold text-center text-color2">
-        Contáctame
+        ¿Tienes alguna consulta? ¡Escríbeme!
       </h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input

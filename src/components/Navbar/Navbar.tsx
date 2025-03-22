@@ -11,7 +11,7 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className="fixed top-0 z-50 w-full shadow bg-color5">
-      <div className="flex items-center justify-between p-3 mx-auto max-w-7xl">
+      <div className="flex items-center justify-between p-2 mx-auto max-w-7xl">
         {/* Logo */}
         <h1 className="font-serif text-2xl text-color2">LOGO</h1>
 
@@ -22,27 +22,10 @@ const NavBar: React.FC = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Menú en pantallas grandes */}
         <ul className="items-center hidden space-x-4 md:flex">
           <li>
             <Link href="/" className="font-serif text-color2 hover:text-color4">
               Inicio
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="font-serif text-color2 hover:text-color4"
-            >
-              Contacto
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/location"
-              className="font-serif text-color2 hover:text-color4"
-            >
-              Ubicación
             </Link>
           </li>
           <li>
@@ -53,6 +36,15 @@ const NavBar: React.FC = () => {
               Acerca de mí
             </Link>
           </li>
+          <li>
+            <Link
+              href="/location"
+              className="font-serif text-color2 hover:text-color4"
+            >
+              Contacto
+            </Link>
+          </li>
+          
           <li>
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
               <Button
@@ -74,14 +66,6 @@ const NavBar: React.FC = () => {
               className="block font-serif text-color2 hover:text-color4"
             >
               Inicio
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="block font-serif text-color2 hover:text-color4"
-            >
-              Contacto
             </Link>
           </li>
           <li>
