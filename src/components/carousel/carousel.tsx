@@ -3,8 +3,8 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Card, CardContent } from "../ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import Image from "next/image";
 
 export function CarouselPlugin() {
@@ -23,7 +23,6 @@ export function CarouselPlugin() {
             <div className="p-2 md:p-4 lg:p-6">
               <Card>
                 <CardContent className="relative flex items-center justify-center p-2 aspect-square">
-                  {/* Fondo de gradiente detrás de la imagen */}
                   <div className="absolute inset-0 rounded-md bg-gradient-to-r from-purple-200 to-indigo-300" />
                   <Image
                     src={`/images/carousel${index + 1}.jpg`}
