@@ -1,30 +1,32 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "target": "ES2017",                       // Compilación a ES2017, compatible con Node.js
+    "lib": ["ESNext"],                        // Usar las últimas características de JavaScript
+    "allowJs": true,                          // Permite usar archivos .js en el proyecto
+    "skipLibCheck": true,                     // Omite la comprobación de tipos en bibliotecas externas
+    "strict": true,                           // Habilita el modo estricto para detectar errores comunes
+    "esModuleInterop": true,                  // Habilita la interoperabilidad de módulos entre CommonJS y ES
+    "module": "CommonJS",                     // Utiliza CommonJS para los módulos (requerido por Node.js)
+    "moduleResolution": "node",               // Resolución de módulos estilo Node.js
+    // "resolveJsonModule": true,                // Permite importar archivos JSON como módulos
+    "outDir": "./dist",                       // Carpeta donde se generarán los archivos compilados
+    "rootDir": "./src",                       // Carpeta de las fuentes del proyecto
+    "noImplicitAny": true,                    // Prohíbe el uso de 'any' sin explícitamente asignarlo
+    "skipDefaultLibCheck": true,              // Omite la comprobación de tipos de la librería estándar
+    "incremental": true,                      // Habilita la compilación incremental
+    "isolatedModules": true,                  // Asegura que cada archivo sea independiente
+    "resolveJsonModule": true,                // Permite importar archivos JSON
+    "strictNullChecks": true,                 // Habilita chequeo de valores nulos
+    "noEmit": false,                          // Habilita la generación de archivos JavaScript
+    "baseUrl": ".",                           // Establece la base para las rutas relativas
     "paths": {
-      "@/*": ["./src/*"],
-      "@app/*": ["./src/app/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@components/*": ["./src/components/*"]
+      "@/*": ["src/*"],                       // Mapear rutas para facilitar el acceso a archivos en src
+      "@config/*": ["src/config/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@models/*": ["src/models/*"],
+      "@services/*": ["src/services/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts"],                 
+  "exclude": ["node_modules", "dist"]      
 }
