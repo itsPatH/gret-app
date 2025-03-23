@@ -21,7 +21,7 @@ const ContactForm: React.FC = () => {
           type="text"
           placeholder="Nombre"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName((e.target as HTMLInputElement).value)}
           className="w-full p-2 text-gray-800 bg-white border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-lightLavender"
           required
         />

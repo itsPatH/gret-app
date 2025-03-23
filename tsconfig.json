@@ -1,32 +1,62 @@
 {
   "compilerOptions": {
-    "target": "ES2017",                       
-    "lib": ["ESNext"],                       
-    "allowJs": true,                          
-    "skipLibCheck": true,                     
-    "strict": true,                           
-    "esModuleInterop": true,                  
-    "module": "CommonJS",                     
-    "moduleResolution": "node",               
-    // "resolveJsonModule": true,                
-    "outDir": "./dist",                       
-    "rootDir": "./src",                       
-    "noImplicitAny": true,                    
-    "skipDefaultLibCheck": true,              
-    "incremental": true,                      
-    "isolatedModules": true,                  
-    "resolveJsonModule": true,                
-    "strictNullChecks": true,                 
-    "noEmit": false,                          
-    "baseUrl": ".",                           
+    "target": "ES2017",
+    "lib": [
+      "ESNext",
+      "dom",
+      "es2015"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    // "resolveJsonModule": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noImplicitAny": true,
+    "skipDefaultLibCheck": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "noEmit": false,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],                      
-      "@config/*": ["src/config/*"],
-      "@controllers/*": ["src/controllers/*"],
-      "@models/*": ["src/models/*"],
-      "@services/*": ["src/services/*"]
-    }
+      "@/*": [
+        "src/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@controllers/*": [
+        "src/controllers/*"
+      ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ]
+    },
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["src/**/*.ts"],                 
-  "exclude": ["node_modules", "dist"]      
+  "include": [
+    "src/**/*.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next"
+  ]
 }
