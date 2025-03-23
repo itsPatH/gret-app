@@ -1,10 +1,11 @@
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
-import { JSX } from "react";
+//import { JSX } from "react";
+import { ReactNode } from "react";
 
 interface SocialLink {
   href: string;
-  icon: JSX.Element; 
+  icon: ReactNode; 
 }
 
 const socialLinks: SocialLink[] = [

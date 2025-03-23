@@ -1,4 +1,5 @@
-import { CarouselPlugin } from '@/components/Carousel/carousel';
+import React from 'react';
+import { CarouselPlugin } from '../components/Carousel/carousel';
 
 export default function Home() {
   return (

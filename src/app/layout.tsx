@@ -1,15 +1,16 @@
+import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@components/Navbar/Navbar";
-import Footer from "@components/Footer/Footer";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
-const geistSans = Geist({
+const geistSans = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Roboto_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -31,7 +32,7 @@ export default function RootLayout({
         <div className="flex flex-col items-center justify-between min-h-screen sm:min-h-[80vh] md:min-h-[70vh] lg:min-h-[100vh] w-full pt-0">
           {children}
         </div>
-        <Footer />
+        <Footer/>
       </body>
     </html>
   );

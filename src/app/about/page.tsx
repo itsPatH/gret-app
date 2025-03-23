@@ -1,7 +1,8 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
-import SocialLinks from "../../components/SocialLinks/SocialLinks";
+import SocialLinks from "@/src/components/SocialLinks/SocialLinks";
 
 const AboutMe = () => {
   return (

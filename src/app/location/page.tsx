@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Map from "../../components/Maps/Map";
-import ContactForm from "../../components/Forms/ContactForm";
+import Map from "@/src/components/Maps/Map";
+import ContactForm from "@/src/components/Forms/ContactForm";
 
 const LocationPage: React.FC = () => {
   return (
