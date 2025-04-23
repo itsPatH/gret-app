@@ -30,6 +30,7 @@ export function CarouselPlugin() {
                     width={300}
                     height={300}
                     className="relative z-10 object-contain w-1/2 mx-auto rounded-xl"
+                    priority={index === 0}
                   />
                   <CarouselPrevious 
                     className="absolute z-20 flex items-center justify-center w-12 h-12 text-white transition-all duration-300 -translate-y-1/2 rounded-md shadow-lg bg-black/50 left-2 top-1/2 hover:bg-black/70" 
