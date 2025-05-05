@@ -16,6 +16,10 @@ export function CarouselPlugin() {
       className="relative w-auto max-w-2xl mx-auto mt-auto"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
+      opts={{
+        loop: true,
+        align: "center",
+      }}
     >
       <CarouselContent>
         {Array.from({ length: 4 }).map((_, index) => (
@@ -33,10 +37,10 @@ export function CarouselPlugin() {
                     priority={index === 0}
                   />
                   <CarouselPrevious 
-                    className="absolute z-20 flex items-center justify-center w-12 h-12 text-white transition-all duration-300 -translate-y-1/2 rounded-md shadow-lg bg-black/50 left-2 top-1/2 hover:bg-black/70" 
+                    className="absolute z-20 flex items-center justify-center w-12 h-12 text-white transition-all duration-300 -translate-y-1/2 rounded-full shadow-lg bg-black/50 left-2 top-1/2 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-purple-500" 
                   />
                   <CarouselNext 
-                    className="absolute z-20 flex items-center justify-center w-12 h-12 text-white transition-all duration-300 -translate-y-1/2 rounded-md shadow-lg bg-black/50 right-2 top-1/2 hover:bg-black/70" 
+                    className="absolute z-20 flex items-center justify-center w-12 h-12 text-white transition-all duration-300 -translate-y-1/2 rounded-full shadow-lg bg-black/50 right-2 top-1/2 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-purple-500" 
                   />
                 </CardContent>
               </Card>

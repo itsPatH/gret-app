@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'baloo': ['"Baloo 2"', 'cursive'],
+      },
     },
   },
   plugins: [],

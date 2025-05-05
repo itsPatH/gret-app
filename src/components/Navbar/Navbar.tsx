@@ -3,24 +3,49 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../../components/ui/button";
 import Link from "next/link";
+import Logo from "../Logo/Logo";
 import { Menu, X } from "lucide-react";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const whatsappLink = "https://wa.me/584121176817";
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) return null; // Evita renderizar en SSR
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY) { // scrolling down
+        setIsVisible(false);
+      } else { // scrolling up
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
+
+  if (!isMounted) return null; 
 
   return (
-    <nav className="fixed top-0 z-50 w-full shadow bg-color5">
+    <nav className={`fixed top-0 z-50 w-full shadow bg-color5 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="flex items-center justify-between p-3 mx-auto max-w-7xl">
-        <h1 className="font-serif text-2xl text-color2">LOGO</h1>
-
+       <div>  
+     <Logo />
+      </div>
+     
         <button
           className="md:hidden text-color2 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}

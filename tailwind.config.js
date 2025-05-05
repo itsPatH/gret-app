@@ -57,7 +57,11 @@ module.exports = {
   			serif: [
   				'Libre Baskerville',
   				'serif'
-  			]
+  			],
+			baloo: [
+				'Baloo 2',
+				'cursive'
+			]
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

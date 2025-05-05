@@ -16,8 +16,30 @@ const geistMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gret Pediatra",
-  description: "Una web para la pediatra",
+  title: "Gret Pediatra | Consulta Pediátrica Especializada",
+  description: "Consulta pediátrica especializada ofreciendo atención personalizada y profesional para el cuidado de la salud de tus hijos.",
+  keywords: ["pediatra", "consulta pediátrica", "salud infantil", "pediatría"],
+  authors: [{ name: "Gret Pediatra" }],
+  openGraph: {
+    title: "Gret Pediatra | Consulta Pediátrica Especializada",
+    description: "Consulta pediátrica especializada ofreciendo atención personalizada y profesional para el cuidado de la salud de tus hijos.",
+    type: "website",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gret Pediatra | Consulta Pediátrica Especializada",
+    description: "Consulta pediátrica especializada ofreciendo atención personalizada y profesional para el cuidado de la salud de tus hijos.",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -26,12 +48,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
-        <div className="flex flex-col items-center justify-between min-h-screen sm:min-h-[80vh] md:min-h-[70vh] lg:min-h-[100vh] w-full pt-0">
+        <main className="flex flex-col items-center justify-between min-h-screen sm:min-h-[80vh] md:min-h-[70vh] lg:min-h-[100vh] w-full pt-0">
           {children}
-        </div>
+        </main>
         <Footer/>
       </body>
     </html>
