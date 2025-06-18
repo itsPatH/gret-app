@@ -50,7 +50,7 @@ const Navbar = () => {
             height={40}
             className="rounded-full"
           />
-          <span className="text-xl font-bold text-purple-700">
+          <span className="text-xl font-bold text-black">
             Gret Pediatra
           </span>
         </div>
