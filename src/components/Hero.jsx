@@ -12,7 +12,7 @@ const Hero = () => (
     />
 
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg">
-      Hola! Soy la Dra. Gretzalid Meléndez.
+      ¡Hola👋🏻! Soy la Dra. Gretzalid Meléndez.
     </h1>
 
     <p className="text-lg sm:text-xl md:text-2xl mt-4 font-semibold text-white drop-shadow-md">

@@ -2,6 +2,7 @@
 
 import { SlSocialInstagram } from "react-icons/sl";
 import { FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { MdOutlineMailOutline } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { BiChevronUp } from "react-icons/bi";
@@ -47,13 +48,30 @@ const Footer = () => {
             <SlSocialInstagram />
           </a>
           <a
-            href="https://www.tiktok.com/@tu_usuario"
+            href="https://www.tiktok.com//@gretzalidmelendez"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
           >
             <FaTiktok />
           </a>
+          <a
+          href="mailto:gretpediatra@gmail.com"
+          aria-label="Correo electrónico"
+          className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+          >
+           <MdOutlineMailOutline />
+          </a>
+          <a
+          href="https://wa.me/584121176817?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20contigo%20%F0%9F%98%8A"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+          >
+          <FaWhatsapp />
+          </a>
+
         
         </div>
       </motion.div>
@@ -64,8 +82,8 @@ const Footer = () => {
             © {new Date().getFullYear()} Dra. Gretzalid Meléndez. Todos los derechos reservados.
           </p>
           <p className="mt-2 sm:mt-0 flex items-center gap-2">
-            Creado por <a href="https://www.instagram.com/itsgabdev/" target="_blank" rel="noopener noreferrer" className=" hover:text-purple-600 dark:hover:text-purple-400">@itsgabdev</a>
-            <SiGithubsponsors />
+            Made with<SiGithubsponsors className="text-purple-800" />by<a href="https://www.instagram.com/itsgabdev/" target="_blank" rel="noopener noreferrer" className=" hover:text-purple-700 dark:hover:text-purple-700">@itsgabdev</a>
+            
           </p>
         </div>
       </div>
@@ -74,7 +92,7 @@ const Footer = () => {
         <button
           onClick={scrollToTop}
           aria-label="Volver arriba"
-          className="fixed bottom-6 right-6 z-50 p-2 bg-transparent hover:bg-purple-300 text-black rounded-full border shadow-lg transition-colors"
+          className="fixed bottom-14 right-6 z-50 p-2 bg-transparent hover:bg-purple-300 text-black rounded-full border shadow-lg transition-colors"
         >
           <BiChevronUp size={24} />
         </button>

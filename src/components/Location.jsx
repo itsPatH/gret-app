@@ -7,7 +7,7 @@ const Location = () => (
       backgroundImage: 'url("/images/background-extended.png")',
     }}
   >
-    <h2 className="text-4xl sm:text-5xl font-extrabold drop-shadow-xl mb-14">
+    <h2 className="text-4xl sm:text-5xl font-extrabold drop-shadow-xl mb-14 text-purple-800">
      Ubicaciones
     </h2>
 

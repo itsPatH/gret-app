@@ -11,8 +11,8 @@ const About = () => (
       <p className="max-w-4xl mx-auto mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-black text-justify px-4 sm:px-0">
         Soy <strong>Gretzalid Meléndez</strong>, médico egresada de la Universidad Centroccidental Lisandro Alvarado con mención <em>magna cum laude</em>. 
         Me especialicé en Pediatría en el Hospital Universitario Pediátrico Dr. Agustín Zubillaga. 
-        Actualmente, soy docente en la <strong>UCLA</strong> y miembro del equipo del Servicio de Neonatología del <strong>HCUAMP</strong>, donde contribuyo al cuidado de los más pequeños desde sus primeros días de vida.
-      </p>
+        Actualmente, soy docente en la <strong>UCLA</strong> y pediatra adjunto de la Policlínica de Cabudare donde contribuyo al cuidado de los más pequeños desde sus primeros días de vida.
+      </p> 
 
       <div className="flex flex-col sm:flex-row items-center bg-white rounded-2xl shadow-lg overflow-hidden max-w-4xl mx-auto mt-12">
         {/* Imagen preview Instagram */}
