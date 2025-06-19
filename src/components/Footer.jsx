@@ -35,7 +35,7 @@ const Footer = () => {
       >
 
         <div className="text-xl font-light text-black dark:text-black">
-          Sígueme en mis redes sociales
+          Sígueme en redes sociales y contáctame por correo o WhatsApp
         </div>
 
         <div className="flex gap-6 text-2xl">
