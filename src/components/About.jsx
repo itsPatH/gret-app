@@ -1,56 +1,94 @@
-import { FiInstagram } from "react-icons/fi";
+import { FiInstagram, FiExternalLink } from "react-icons/fi";
 
 const About = () => (
-  <div className="w-full bg-white py-20 px-4 sm:px-8 text-gray-800">
-    <div className="max-w-5xl mx-auto">
-
-      <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-10 text-purple-700 drop-shadow-lg">
-        Conóceme
-      </h1>
-
-      <p className="max-w-4xl mx-auto mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-black text-justify px-4 sm:px-0">
-        Soy <strong>Gretzalid Meléndez</strong>, médico egresada de la Universidad Centroccidental Lisandro Alvarado con mención <em>magna cum laude</em>. 
-        Me especialicé en Pediatría en el Hospital Universitario Pediátrico Dr. Agustín Zubillaga. 
-        Actualmente, soy docente en la <strong>UCLA</strong> y pediatra adjunto de la Policlínica de Cabudare donde contribuyo al cuidado de los más pequeños desde sus primeros días de vida.
-      </p> 
-
-      <div className="flex flex-col sm:flex-row items-center bg-white rounded-2xl shadow-lg overflow-hidden max-w-4xl mx-auto mt-12">
-        {/* Imagen preview Instagram */}
-        <a
-          href="https://www.instagram.com/gretpediatra"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full sm:w-48 h-48 sm:h-auto overflow-hidden shrink-0"
-          aria-label="Instagram Gretzalid Meléndez"
-        >
-          <img
-            src="/images/carousel3.jpg"
-            alt="Vista previa Instagram Gretzalid Meléndez"
-            className="w-full h-full object-cover"
-          />
-        </a>
-
-        {/* Texto info */}
-        <div className="p-6 flex flex-col justify-center text-center sm:text-left">
-          <h2 className="text-2xl font-semibold mb-2 flex items-center justify-center sm:justify-start gap-2 text-purple-700">
-            <FiInstagram className="text-3xl" /> Sígueme en Instagram y conoce a Lulú 🐸
-          </h2>
-          <p className="text-base text-gray-600 max-w-md">
-            Sígueme para acceder a podcasts informativos sobre pediatría, consejos de salud infantil, y mucho más. Actualizaciones semanales y contenido confiable para el cuidado de tus pequeños.
-          </p>
-          <a
-            href="https://www.instagram.com/gretpediatra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-block px-5 py-2 bg-purple-700 text-white rounded-full shadow hover:bg-purple-600 transition-colors font-semibold cursor-pointer"
-          >
-            Ir a Instagram
-          </a>
-        </div>
-      </div>
+  <section className="py-24 px-6 bg-gradient-to-b from-gray-50/90 to-white">
+    <div className="max-w-4xl mx-auto">
       
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
+          Sobre mí
+        </h2>
+        <div className="w-16 h-px bg-gray-300 mx-auto"></div>
+      </div>
+
+      {/* Main Content */}
+      <div className="space-y-16">
+        
+        {/* Bio Section */}
+        <div className="max-w-3xl mx-auto">
+          <p className="text-lg leading-relaxed text-gray-700 font-light text-justify">
+            Soy{" "}
+            <span className="font-medium text-gray-900">Gretzalid Meléndez</span>,
+            médico egresada de la Universidad Centroccidental Lisandro Alvarado con mención{" "}
+            <em className="text-gray-600">magna cum laude</em>. 
+            Me especialicé en Pediatría en el Hospital Universitario Pediátrico Dr. Agustín Zubillaga.
+          </p>
+          
+          <p className="text-lg leading-relaxed text-gray-700 font-light mt-6 text-justify">
+            Actualmente, soy docente en la{" "}
+            <span className="font-medium text-gray-900">UCLA</span> y pediatra adjunto 
+            de la Policlínica de Cabudare, donde contribuyo al cuidado de los más pequeños 
+            desde sus primeros días de vida.
+          </p>
+        </div>
+
+        {/* Instagram Section */}
+        <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            
+            {/* Image */}
+            <div className="order-2 md:order-1">
+              <div className="relative group overflow-hidden rounded-2xl aspect-square">
+                <img
+                  src="/images/carousel3.jpg"
+                  alt="Vista previa Instagram"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <FiExternalLink className="text-gray-700 text-sm" />
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="order-1 md:order-2 space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                  <FiInstagram className="text-white text-xl" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-gray-900">
+                    Sígueme en Instagram
+                  </h3>
+                  <p className="text-sm text-gray-500">@gretpediatra</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 leading-relaxed">
+                Accede a contenido educativo sobre pediatría, consejos de salud infantil 
+                y conoce a Lulú 🐸. Actualizaciones regulares con información confiable 
+                para el cuidado de tus pequeños.
+              </p>
+
+              <a
+                href="https://www.instagram.com/gretpediatra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-medium group"
+              >
+                Visitar perfil
+                <FiExternalLink className="text-sm transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </section>
 );
 
 export default About;
