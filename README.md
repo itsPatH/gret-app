@@ -1,5 +1,12 @@
 # GRET-APP
+<p align="center">
+  <a href="#english">🇬🇧 English</a> |
+  <a href="#español">🇪🇸 Español</a>
+</p>
 
+---
+
+## 🇬🇧 Español <a name="español"></a>
 ### 🇪🇸 Versión en Español
 > **Importante:** Actualmente estoy desarrollando el sistema de agenda, por lo que aún no se muestra en la página web.
 
@@ -73,7 +80,7 @@ npm run dev
 ## Licencia
 - MIT License
 ---
-
+## 🇬🇧 English <a name="english"></a>
 ## 🇺🇸 English Version
 
 ## 🎯 About the Project
