@@ -1,11 +1,16 @@
 import { IoLocationOutline, IoNavigateOutline } from "react-icons/io5";
+import Image from "next/image";
 
 const Location = () => (
   <section className="relative py-24 px-6 overflow-hidden">
     {/* Background with overlay */}
-    <div 
-      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: 'url("/images/background-extended.png")' }}
+    <Image
+      src="/images/background-extended.png"
+      alt=""
+      fill
+      sizes="100vw"
+      loading="lazy"
+      className="object-cover"
     />
     <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-black/30 to-black/50" />
     

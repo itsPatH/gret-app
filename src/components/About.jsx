@@ -1,4 +1,5 @@
 import { FiInstagram, FiExternalLink } from "react-icons/fi";
+import Image from "next/image";
 
 const About = () => (
   <section className="py-24 px-6 bg-gradient-to-b from-gray-50/90 to-white">
@@ -40,10 +41,13 @@ const About = () => (
             {/* Image */}
             <div className="order-2 md:order-1">
               <div className="relative group overflow-hidden rounded-2xl aspect-square">
-                <img
+                <Image
                   src="/images/carousel3.jpg"
                   alt="Vista previa Instagram"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  loading="lazy"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

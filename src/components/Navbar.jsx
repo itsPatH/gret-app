@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
 import clsx from "clsx";
-import ContactForm from "./ContactForm/ContactForm";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

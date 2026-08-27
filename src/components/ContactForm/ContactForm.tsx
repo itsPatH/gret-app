@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiUser, FiMail, FiMessageCircle, FiSend, FiCheck } from "react-icons/fi";
+import { FiUser, FiMail, FiMessageCircle, FiSend, FiCheck, FiAlertCircle } from "react-icons/fi";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -22,19 +23,36 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    if (isSubmitting) return;
 
-    // Simular envío (aquí integrarías con tu servicio de email)
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 3000);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.error || "No se pudo enviar el mensaje.");
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", message: "" });
+      }, 3000);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error ? err.message : "No se pudo enviar el mensaje."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -151,6 +169,17 @@ const ContactForm = () => {
               />
             </div>
           </div>
+
+          {/* Error Message */}
+          {errorMessage && (
+            <div
+              role="alert"
+              className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3"
+            >
+              <FiAlertCircle className="text-lg shrink-0" />
+              {errorMessage}
+            </div>
+          )}
 
           {/* Submit Button */}
           <div className="pt-4">

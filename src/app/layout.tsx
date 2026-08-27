@@ -12,9 +12,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Set once a production domain exists (see .env.example). Until then,
+// metadataBase stays undefined and OG/Twitter image URLs remain relative.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+const title = "Gret Pediatra | Dra. Gretzalid Meléndez";
+const description =
+  "Consulta pediátrica de la Dra. Gretzalid Meléndez en Barquisimeto y Cabudare. Cuidado integral para tu pequeño.";
+
 export const metadata: Metadata = {
-  title: "Gret Pediatra",
-  description: "La web de la pediatra",
+  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    locale: "es_VE",
+    siteName: "Gret Pediatra",
+    images: ["/images/profilephoto.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/profilephoto.png"],
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

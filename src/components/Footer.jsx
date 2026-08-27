@@ -48,7 +48,7 @@ const Footer = () => {
             <SlSocialInstagram />
           </a>
           <a
-            href="https://www.tiktok.com//@gretzalidmelendez"
+            href="https://www.tiktok.com/@gretzalidmelendez"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
