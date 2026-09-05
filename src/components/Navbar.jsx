@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
 import clsx from "clsx";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const navRef = useRef(null);
 
   const links = [
     { label: "Inicio", to: "hero" },
@@ -31,8 +32,29 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <nav
+      ref={navRef}
       className={clsx(
         "fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/90 border-b border-gray-100 transition-all duration-300",
         {
@@ -78,7 +100,9 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          aria-label="Abrir menú"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
           className="md:hidden relative w-6 h-6 flex flex-col justify-center items-center group"
         >
           <span
@@ -98,6 +122,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-menu"
         className={clsx(
           "md:hidden overflow-hidden transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-100",
           isOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"

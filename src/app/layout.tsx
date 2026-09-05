@@ -12,16 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Set once a production domain exists (see .env.example). Until then,
-// metadataBase stays undefined and OG/Twitter image URLs remain relative.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+// Confirmed production domain; override via NEXT_PUBLIC_SITE_URL for
+// staging/local if needed (see .env.example).
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gretpediatra.com";
 
 const title = "Gret Pediatra | Dra. Gretzalid Meléndez";
 const description =
   "Consulta pediátrica de la Dra. Gretzalid Meléndez en Barquisimeto y Cabudare. Cuidado integral para tu pequeño.";
 
 export const metadata: Metadata = {
-  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  metadataBase: new URL(siteUrl),
   title,
   description,
   openGraph: {
