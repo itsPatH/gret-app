@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiUser, FiMail, FiMessageCircle, FiSend, FiCheck } from "react-icons/fi";
+import { FiUser, FiMail, FiMessageCircle, FiSend, FiCheck, FiAlertCircle } from "react-icons/fi";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    website: "" // honeypot — must stay empty; bots tend to fill every field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -22,19 +24,36 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    if (isSubmitting) return;
 
-    // Simular envío (aquí integrarías con tu servicio de email)
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 3000);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.error || "No se pudo enviar el mensaje.");
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", message: "", website: "" });
+      }, 3000);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error ? err.message : "No se pudo enviar el mensaje."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -86,6 +105,18 @@ const ContactForm = () => {
           className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 space-y-8"
         >
           
+          {/* Honeypot — hidden from real users, bots tend to fill every field */}
+          <input
+            type="text"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] w-px h-px overflow-hidden"
+          />
+
           {/* Name Field */}
           <div className="group">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-3">
@@ -151,6 +182,17 @@ const ContactForm = () => {
               />
             </div>
           </div>
+
+          {/* Error Message */}
+          {errorMessage && (
+            <div
+              role="alert"
+              className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3"
+            >
+              <FiAlertCircle className="text-lg shrink-0" />
+              {errorMessage}
+            </div>
+          )}
 
           {/* Submit Button */}
           <div className="pt-4">

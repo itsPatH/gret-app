@@ -1,23 +1,30 @@
 import { FiCalendar } from "react-icons/fi";
+import Image from "next/image";
 
 const Hero = () => (
   <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
     {/* Background with overlay */}
-    <div 
-      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: 'url("/images/formbackground.jpg")' }}
+    <Image
+      src="/images/formbackground.jpg"
+      alt=""
+      fill
+      sizes="100vw"
+      className="object-cover"
     />
     <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
-    
+
     {/* Content */}
     <div className="relative z-10 mx-auto px-10 pt-20 text-center">
       {/* Profile Image */}
       <div className="mb-12">
-        <div className="relative inline-block">
-          <img
+        <div className="relative inline-block w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56">
+          <Image
             src="/images/profilephoto.png"
             alt="Dra. Gretzalid Meléndez"
-            className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-cover mx-auto shadow-2xl ring-4 ring-white/20"
+            fill
+            priority
+            sizes="(min-width: 768px) 224px, (min-width: 640px) 192px, 160px"
+            className="rounded-full object-cover shadow-2xl ring-4 ring-white/20"
           />
           <div className="absolute inset-0 rounded-full bg-gradient-to-t from-transparent to-white/10" />
         </div>
