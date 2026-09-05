@@ -8,7 +8,8 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    website: "" // honeypot — must stay empty; bots tend to fill every field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -44,7 +45,7 @@ const ContactForm = () => {
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", website: "" });
       }, 3000);
     } catch (err) {
       setErrorMessage(
@@ -104,6 +105,18 @@ const ContactForm = () => {
           className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 space-y-8"
         >
           
+          {/* Honeypot — hidden from real users, bots tend to fill every field */}
+          <input
+            type="text"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] w-px h-px overflow-hidden"
+          />
+
           {/* Name Field */}
           <div className="group">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-3">
