@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -51,6 +52,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Sin cookies y sin identificadores por visitante, así que no
+            necesita banner de consentimiento. Solo emite datos cuando la
+            app corre en Vercel; en local no hace nada. */}
+        <Analytics />
       </body>
     </html>
   );
