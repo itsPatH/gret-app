@@ -72,6 +72,7 @@ const Navbar = () => {
               alt="Logo Gret Pediatra"
               width={32}
               height={32}
+              priority
               className="object-cover"
             />
           </div>
