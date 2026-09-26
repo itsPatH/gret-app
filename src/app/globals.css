@@ -1,26 +1,81 @@
 @import "tailwindcss";
-html {
-  scroll-behavior: smooth;
-}
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* El tema lo decide el botón del navbar, no el sistema operativo: se aplica
+   como data-theme="dark" en <html>. Esta variante permite usar dark:… en los
+   pocos casos que no cubre un token (los verdes y rojos de estado). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-:root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* "inline" hace que las utilidades apunten a la variable en lugar de copiar
+   su valor, que es lo que permite cambiar de tema sin recompilar. */
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-fondo-alt: var(--fondo-alt);
+  --color-superficie: var(--superficie);
+  --color-campo: var(--campo);
+  --color-borde: var(--borde);
+  --color-borde-fuerte: var(--borde-fuerte);
+  --color-titulo: var(--titulo);
+  --color-cuerpo: var(--cuerpo);
+  --color-suave: var(--suave);
+  --color-tenue: var(--tenue);
+  --color-accion: var(--accion);
+  --color-accion-texto: var(--accion-texto);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-/* Sin bloque de modo oscuro a propósito: ningún componente lo implementa y
-   varias secciones usan fondos translúcidos (bg-white/90, gray-50/50) que
-   dejaban pasar el negro del body en dispositivos con el tema oscuro. */
+/* Claro: son exactamente los grises que ya usaba el sitio, para que el tema
+   por defecto quede idéntico a como estaba. */
+:root {
+  color-scheme: light;
+
+  --fondo: #ffffff;
+  --fondo-alt: #f9fafb;
+  --superficie: #ffffff;
+  --campo: #f9fafb;
+  --borde: #f3f4f6;
+  --borde-fuerte: #e5e7eb;
+  --titulo: #111827;
+  --cuerpo: #374151;
+  --suave: #6b7280;
+  /* Era gray-400, que dejaba los placeholders en 2.43:1 sobre el relleno del
+     campo. Con este valor llegan a 4.63:1. */
+  --tenue: #6b7280;
+  --accion: #111827;
+  --accion-texto: #ffffff;
+}
+
+/* Oscuro con un matiz violeta muy desaturado, que enlaza con el atardecer
+   del Hero y el fondo del retrato sin llegar al lila saturado. */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --fondo: #121017;
+  --fondo-alt: #16131d;
+  --superficie: #1b1823;
+  --campo: #24202e;
+  --borde: #2a2535;
+  /* En oscuro los bordes necesitan más fuerza que en claro para seguir
+     identificando el campo: este valor da 3.07:1 sobre la tarjeta. */
+  --borde-fuerte: #6b6282;
+  --titulo: #efecf5;
+  --cuerpo: #cfc9dd;
+  --suave: #a098b4;
+  --tenue: #9089ab;
+  --accion: #efecf5;
+  --accion-texto: #171320;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--fondo);
+  color: var(--cuerpo);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* El Hero y Ubicaciones llevan fotografía con velo oscuro y texto blanco:
+   ya son oscuros en ambos temas y se quedan como están. */
