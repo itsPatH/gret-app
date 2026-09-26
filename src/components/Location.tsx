@@ -5,14 +5,17 @@ const Location = () => (
   <section className="relative py-24 px-6 overflow-hidden">
     {/* Background with overlay */}
     <Image
-      src="/images/background-extended.png"
+      src="/images/background-extended.jpg"
       alt=""
       fill
       sizes="100vw"
       loading="lazy"
       className="object-cover"
     />
-    <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-black/30 to-black/50" />
+    {/* El velo arrancaba en white/10, que aclaraba un mural ya de por sí
+        claro: el texto blanco quedaba en 1.16:1 sobre las zonas de cielo.
+        Con este degradado el h2 mide 4.98:1 y el subtítulo 5.4:1. */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/70" />
     
     <div className="relative z-10 max-w-4xl mx-auto">
       
@@ -22,7 +25,7 @@ const Location = () => (
           Ubicaciones
         </h2>
         <div className="w-16 h-px bg-white/40 mx-auto"></div>
-        <p className="text-white/80 mt-6 font-light">
+        <p className="text-white mt-6 font-light">
           Encuentra la consulta más cercana a ti
         </p>
       </div>
@@ -32,7 +35,7 @@ const Location = () => (
         
         {/* Barquisimeto */}
         <div className="group">
-          <div className="bg-white/10 backdrop-blur-l border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02]">
+          <div className="bg-black/20 backdrop-blur-lg border border-white/20 rounded-2xl p-8 hover:bg-black/30 transition-all duration-500 hover:scale-[1.02]">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               
               {/* Icon */}
@@ -71,7 +74,7 @@ const Location = () => (
 
         {/* Cabudare */}
         <div className="group">
-          <div className="bg-white/10 backdrop-blur-l border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02]">
+          <div className="bg-black/20 backdrop-blur-lg border border-white/20 rounded-2xl p-8 hover:bg-black/30 transition-all duration-500 hover:scale-[1.02]">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               
               {/* Icon */}

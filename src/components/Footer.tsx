@@ -25,7 +25,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-white border-t dark:border-gray-800 text-gray-800 dark:text-black">
+    <footer className="relative bg-white border-t border-gray-100 text-gray-800">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ const Footer = () => {
         className="max-w-7xl mx-auto px-6 py-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-between"
       >
 
-        <div className="text-xl font-light text-black dark:text-black">
+        <div className="text-xl font-light text-black">
           Sígueme en redes sociales y contáctame por correo o WhatsApp
         </div>
 
@@ -43,7 +43,7 @@ const Footer = () => {
             href="https://www.instagram.com/gretpediatra/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            className="hover:text-purple-600 transition-colors"
           >
             <SlSocialInstagram />
           </a>
@@ -51,14 +51,14 @@ const Footer = () => {
             href="https://www.tiktok.com/@gretzalidmelendez"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            className="hover:text-purple-600 transition-colors"
           >
             <FaTiktok />
           </a>
           <a
           href="mailto:gretpediatra@gmail.com"
           aria-label="Correo electrónico"
-          className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+          className="hover:text-purple-600 transition-colors"
           >
            <MdOutlineMailOutline />
           </a>
@@ -67,7 +67,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
-          className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+          className="hover:text-purple-600 transition-colors"
           >
           <FaWhatsapp />
           </a>
@@ -76,13 +76,13 @@ const Footer = () => {
         </div>
       </motion.div>
 
-      <div className="border-t dark:border-gray-800 py-4 px-6 text-center text-sm text-gray-500 dark:text-gray-400">
+      <div className="border-t border-gray-100 py-4 px-6 text-center text-sm text-gray-500">
         <div className="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto">
           <p>
             © {new Date().getFullYear()} Dra. Gretzalid Meléndez. Todos los derechos reservados.
           </p>
           <p className="mt-2 sm:mt-0 flex items-center gap-2">
-            Made with<SiGithubsponsors className="text-purple-800" />by<a href="https://www.instagram.com/itsgabdev/" target="_blank" rel="noopener noreferrer" className=" hover:text-purple-700 dark:hover:text-purple-700">@itsgabdev</a>
+            Made with<SiGithubsponsors className="text-purple-800" />by<a href="https://www.instagram.com/itsgabdev/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-700">@itsgabdev</a>
             
           </p>
         </div>
