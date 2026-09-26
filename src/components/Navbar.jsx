@@ -86,6 +86,7 @@ const Navbar = () => {
             <ScrollLink
               key={link.to}
               to={link.to}
+              href={`#${link.to}`}
               smooth={true}
               duration={500}
               offset={-80}
@@ -133,6 +134,7 @@ const Navbar = () => {
             <ScrollLink
               key={link.to}
               to={link.to}
+              href={`#${link.to}`}
               smooth={true}
               duration={500}
               offset={-80}
