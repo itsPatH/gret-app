@@ -2,15 +2,15 @@ import { FiInstagram, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
 
 const About = () => (
-  <section className="py-24 px-6 bg-gradient-to-b from-gray-50/90 to-white">
+  <section className="py-24 px-6 bg-gradient-to-b from-fondo-alt to-fondo">
     <div className="max-w-4xl mx-auto">
       
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
+        <h2 className="text-3xl sm:text-4xl font-light text-titulo mb-4">
           Sobre mí
         </h2>
-        <div className="w-16 h-px bg-gray-300 mx-auto"></div>
+        <div className="w-16 h-px bg-borde-fuerte mx-auto"></div>
       </div>
 
       {/* Main Content */}
@@ -18,24 +18,24 @@ const About = () => (
         
         {/* Bio Section */}
         <div className="max-w-3xl mx-auto">
-          <p className="text-lg leading-relaxed text-gray-700 font-light text-justify">
+          <p className="text-lg leading-relaxed text-cuerpo font-light text-justify">
             Soy{" "}
-            <span className="font-medium text-gray-900">Gretzalid Meléndez</span>,
+            <span className="font-medium text-titulo">Gretzalid Meléndez</span>,
             médico egresada de la Universidad Centroccidental Lisandro Alvarado con mención{" "}
-            <em className="text-gray-600">magna cum laude</em>. 
+            <em className="text-suave">magna cum laude</em>.
             Me especialicé en Pediatría en el Hospital Universitario Pediátrico Dr. Agustín Zubillaga.
           </p>
           
-          <p className="text-lg leading-relaxed text-gray-700 font-light mt-6 text-justify">
+          <p className="text-lg leading-relaxed text-cuerpo font-light mt-6 text-justify">
             Actualmente, soy docente en la{" "}
-            <span className="font-medium text-gray-900">UCLA</span> y pediatra adjunto 
+            <span className="font-medium text-titulo">UCLA</span> y pediatra adjunto
             de la Policlínica de Cabudare, donde contribuyo al cuidado de los más pequeños 
             desde sus primeros días de vida.
           </p>
         </div>
 
         {/* Instagram Section */}
-        <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100">
+        <div className="bg-superficie rounded-3xl p-8 sm:p-10 shadow-sm border border-borde">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             
             {/* Image */}
@@ -63,14 +63,14 @@ const About = () => (
                   <FiInstagram className="text-white text-xl" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-gray-900">
+                  <h3 className="text-xl font-medium text-titulo">
                     Sígueme en Instagram
                   </h3>
-                  <p className="text-sm text-gray-500">@gretpediatra</p>
+                  <p className="text-sm text-suave">@gretpediatra</p>
                 </div>
               </div>
               
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-cuerpo leading-relaxed">
                 Accede a contenido educativo sobre pediatría, consejos de salud infantil 
                 y conoce a Lulú 🐸. Actualizaciones regulares con información confiable 
                 para el cuidado de tus pequeños.
@@ -80,7 +80,7 @@ const About = () => (
                 href="https://www.instagram.com/gretpediatra"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-medium group"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accion text-accion-texto rounded-full hover:opacity-90 transition-opacity font-medium group"
               >
                 Visitar perfil
                 <FiExternalLink className="text-sm transition-transform group-hover:translate-x-1" />

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { scriptTema } from "@/lib/tema";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -46,11 +48,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    // el script de abajo escribe data-theme en <html> antes de hidratar
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: scriptTema }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Sin cookies y sin identificadores por visitante, así que no
+            necesita banner de consentimiento. Solo emite datos cuando la
+            app corre en Vercel; en local no hace nada. */}
+        <Analytics />
       </body>
     </html>
   );
