@@ -15,12 +15,9 @@ html {
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Sin bloque de modo oscuro a propósito: ningún componente lo implementa y
+   varias secciones usan fondos translúcidos (bg-white/90, gray-50/50) que
+   dejaban pasar el negro del body en dispositivos con el tema oscuro. */
 
 body {
   background: var(--background);

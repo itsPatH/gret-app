@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_VE",
     siteName: "Gret Pediatra",
-    images: ["/images/profilephoto.png"],
+    images: ["/images/profilephoto.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/profilephoto.png"],
+    images: ["/images/profilephoto.jpg"],
   },
 };
 

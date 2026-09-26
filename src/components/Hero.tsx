@@ -8,6 +8,7 @@ const Hero = () => (
       src="/images/formbackground.jpg"
       alt=""
       fill
+      priority
       sizes="100vw"
       className="object-cover"
     />
@@ -19,7 +20,7 @@ const Hero = () => (
       <div className="mb-12">
         <div className="relative inline-block w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56">
           <Image
-            src="/images/profilephoto.png"
+            src="/images/profilephoto.jpg"
             alt="Dra. Gretzalid Meléndez"
             fill
             priority

@@ -45,7 +45,7 @@ const About = () => (
                   src="/images/carousel3.jpg"
                   alt="Vista previa Instagram"
                   fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
+                  sizes="(min-width: 768px) 400px, calc(100vw - 7rem)"
                   loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
