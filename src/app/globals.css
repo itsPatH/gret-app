@@ -30,15 +30,23 @@
 :root {
   color-scheme: light;
 
-  --fondo: #ffffff;
-  --fondo-alt: #f9fafb;
+  /* La página es una superficie ligeramente hundida y el contenido va en
+     tarjetas que se levantan de ella. Antes fondo y superficie eran los dos
+     blanco puro, así que las tarjetas solo se distinguían por un borde casi
+     invisible y cada sección necesitaba una fotografía para diferenciarse
+     de la anterior. La separación queda en 1.07:1, la misma que el tema
+     oscuro ya tenía entre #121017 y #1b1823. */
+  --fondo: #f7f7f9;
+  --fondo-alt: #f1f1f5;
   --superficie: #ffffff;
   --campo: #f9fafb;
   --borde: #f3f4f6;
   --borde-fuerte: #e5e7eb;
   --titulo: #111827;
   --cuerpo: #374151;
-  --suave: #6b7280;
+  /* Sobre el nuevo fondo de página gray-500 caía a 4.52:1, al filo del
+     mínimo; este valor deja margen (4.94:1). */
+  --suave: #656c79;
   /* Era gray-400, que dejaba los placeholders en 2.43:1 sobre el relleno del
      campo. Con este valor llegan a 4.63:1. */
   --tenue: #6b7280;

@@ -12,11 +12,12 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const navRef = useRef<HTMLElement>(null);
 
+  // "Ubicación" y "Contacto" eran dos entradas para dos secciones que ahora
+  // son una sola; dejarlas apuntando al mismo ancla sería confuso.
   const links = [
     { label: "Inicio", to: "hero" },
     { label: "Sobre mí", to: "about" },
-    { label: "Ubicación", to: "location" },
-    {label: "Contacto", to: "contactform" },
+    { label: "Visítame", to: "visitame" },
   ];
 
   useEffect(() => {
