@@ -38,6 +38,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# originales sin optimizar: entran a `npm run imagenes`, no al repositorio
+/public/images/sin-optimizar/
+
 # vercel
 .vercel
 

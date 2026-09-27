@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "imagenes": "node scripts/optimizar-imagenes.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -33,6 +34,7 @@
     "@types/react-scroll": "^1.8.10",
     "eslint": "^9",
     "eslint-config-next": "15.5.24",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.11"
