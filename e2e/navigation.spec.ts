@@ -4,18 +4,34 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
-test("las cuatro secciones ancladas existen en la página", async ({ page }) => {
-  for (const id of ["hero", "about", "location", "contactform"]) {
+test("las tres secciones ancladas existen en la página", async ({ page }) => {
+  for (const id of ["hero", "about", "visitame"]) {
     await expect(page.locator(`#${id}`)).toHaveCount(1);
   }
+});
+
+/**
+ * Ubicaciones y Contacto se fusionaron en una sola sección: por separado
+ * empujaban el formulario hasta 3,4 pantallas de scroll.
+ */
+test("visitame reúne las direcciones y el formulario", async ({ page }) => {
+  const seccion = page.locator("#visitame");
+  await expect(seccion.getByRole("heading", { name: "Barquisimeto" })).toBeVisible();
+  await expect(seccion.getByRole("heading", { name: "Cabudare" })).toBeVisible();
+  await expect(seccion.locator("form")).toHaveCount(1);
+});
+
+test("el Hero lleva a las ubicaciones sin tener que buscarlas", async ({ page }) => {
+  const atajo = page.locator('#hero a[href="#visitame"]');
+  await expect(atajo).toBeVisible();
 });
 
 test("el enlace del menú lleva a la sección correspondiente", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile", "en móvil los enlaces viven en el menú desplegable");
 
-  await page.locator("nav").getByRole("link", { name: "Ubicación", exact: true }).click();
+  await page.locator("nav").getByRole("link", { name: "Visítame", exact: true }).click();
 
-  await expect(page.locator("#location")).toBeInViewport({ timeout: 5000 });
+  await expect(page.locator("#visitame")).toBeInViewport({ timeout: 5000 });
 });
 
 /**
@@ -27,7 +43,7 @@ test("los enlaces del menú son enlaces de verdad, no anclas vacías", async ({ 
   const enlaces = page.locator("nav a[href^='#']");
   await expect(enlaces).not.toHaveCount(0);
 
-  for (const destino of ["#hero", "#about", "#location", "#contactform"]) {
+  for (const destino of ["#hero", "#about", "#visitame"]) {
     await expect(page.locator(`nav a[href='${destino}']`).first()).toHaveCount(1);
   }
 });
@@ -35,12 +51,12 @@ test("los enlaces del menú son enlaces de verdad, no anclas vacías", async ({ 
 test("se puede navegar el menú con el teclado", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name === "mobile", "en móvil el menú se abre con el botón");
 
-  const enlace = page.locator("nav").getByRole("link", { name: "Ubicación", exact: true });
+  const enlace = page.locator("nav").getByRole("link", { name: "Visítame", exact: true });
   await enlace.focus();
   await expect(enlace).toBeFocused();
 
   await page.keyboard.press("Enter");
-  await expect(page.locator("#location")).toBeInViewport({ timeout: 5000 });
+  await expect(page.locator("#visitame")).toBeInViewport({ timeout: 5000 });
 });
 
 test("la página declara el idioma español", async ({ page }) => {

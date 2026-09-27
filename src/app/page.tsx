@@ -1,9 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Location from "@/components/Location";
+import Visitame from "@/components/Visitame";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm/ContactForm";
 
 // Same domain fallback as src/app/layout.tsx.
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gretpediatra.com";
@@ -48,12 +47,11 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <main className="">
+      <main>
         <section id="hero"><Hero /></section>
         <section id="about"><About /></section>
-        <section id="location"><Location /></section>
-        <section id="contactform"><ContactForm /></section>
-        <section id="footer"><Footer/></section>
+        <section id="visitame"><Visitame /></section>
+        <section id="footer"><Footer /></section>
       </main>
     </>
   );
