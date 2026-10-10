@@ -6,12 +6,13 @@ import Image from "next/image";
  * pieza más genérica del sitio y la fuente del tinte lila de toda la página;
  * el retrato real hace mejor ese trabajo y es material propio.
  *
- * 85vh en lugar de pantalla completa: que asome el borde de la sección
- * siguiente es la señal más barata de que hay más abajo.
+ * Sin altura mínima: el contenido mide menos de 400 px y reservarle el 85%
+ * de la pantalla dejaba casi 200 px vacíos arriba y abajo. Así el inicio de
+ * «Sobre mí» queda a la vista, que es la señal de que hay más abajo.
  */
 const Hero = () => (
-  <section className="min-h-[85vh] flex items-center px-6 pt-28 pb-16">
-    <div className="max-w-5xl mx-auto w-full grid gap-10 md:gap-14 md:grid-cols-[1.1fr_0.9fr] items-center">
+  <section className="flex items-center px-6 pt-28 pb-12">
+    <div className="max-w-6xl mx-auto w-full grid gap-10 md:gap-14 md:grid-cols-[1.1fr_0.9fr] items-center">
       {/* Texto */}
       <div className="order-2 md:order-1 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-titulo leading-tight">
@@ -51,7 +52,7 @@ const Hero = () => (
           y sombra. El marco es blanco en ambos temas, como lo sería una foto
           de verdad sobre una mesa. */}
       <div className="order-1 md:order-2">
-        <figure className="m-0 w-full max-w-sm mx-auto bg-white p-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)]">
+        <figure className="m-0 w-full max-w-sm mx-auto md:mr-0 bg-white p-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)]">
           <div className="relative aspect-square">
             {/* El archivo es el retrato completo tal como sale de
                 `npm run imagenes`; el encuadre lo decide object-position, así

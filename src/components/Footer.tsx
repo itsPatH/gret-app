@@ -35,7 +35,7 @@ const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: ENTRADA.duracion, ease: ENTRADA.curva }}
         viewport={ENTRADA.viewport}
-        className="max-w-7xl mx-auto px-6 py-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-between"
+        className="w-[calc(100%-3rem)] max-w-6xl mx-auto py-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-between"
       >
 
         <div className="text-xl font-light text-titulo">
@@ -81,7 +81,7 @@ const Footer = () => {
       </motion.div>
 
       <div className="border-t border-borde py-4 px-6 text-center text-sm text-suave">
-        <div className="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row justify-between items-center max-w-6xl mx-auto">
           <p>
             © {new Date().getFullYear()} Dra. Gretzalid Meléndez. Todos los derechos reservados.
           </p>

@@ -8,7 +8,7 @@ import ContactForm from "./ContactForm/ContactForm";
  * lo que es en lugar de compartir un título común.
  */
 const Visitame = () => (
-  <section className="py-16 px-6">
+  <section className="py-12 px-6">
     <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2 lg:gap-14">
       <div>
         <h2 className="text-3xl sm:text-4xl font-light text-titulo mb-3">
