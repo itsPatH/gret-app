@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiUser, FiMail, FiMessageCircle, FiSend, FiCheck, FiAlertCircle } from "react-icons/fi";
+import { ENTRADA } from "../Movimiento";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -62,8 +63,9 @@ const ContactForm = () => {
     return (
       <div className="bg-superficie rounded-lg p-8 sm:p-10 shadow-sm border border-borde">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: ENTRADA.duracion, ease: ENTRADA.curva }}
           className="space-y-6 text-center py-10"
         >
           <div className="w-20 h-20 bg-green-100 dark:bg-green-400/15 rounded-full flex items-center justify-center mx-auto">
@@ -82,10 +84,10 @@ const ContactForm = () => {
 
   return (
     <motion.form
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: ENTRADA.desplazamiento }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          transition={{ duration: ENTRADA.duracion, ease: ENTRADA.curva, delay: 0.08 }}
+          viewport={ENTRADA.viewport}
           onSubmit={handleSubmit}
           className="bg-superficie rounded-lg p-8 sm:p-10 shadow-sm border border-borde space-y-8"
         >

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { scriptTema } from "@/lib/tema";
+import { MovimientoConfig } from "@/components/Movimiento";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -56,7 +57,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <MovimientoConfig>{children}</MovimientoConfig>
         {/* Sin cookies y sin identificadores por visitante, así que no
             necesita banner de consentimiento. Solo emite datos cuando la
             app corre en Vercel; en local no hace nada. */}

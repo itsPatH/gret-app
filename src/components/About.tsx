@@ -1,5 +1,6 @@
 import { FiInstagram, FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
+import { Aparecer } from "./Movimiento";
 
 /**
  * Antes la biografía y la tarjeta de Instagram iban apiladas: 170 px de texto
@@ -18,7 +19,7 @@ const About = () => (
 
       <div className="grid gap-10 md:grid-cols-2 md:gap-12 items-start">
         {/* Biografía */}
-        <div className="space-y-5">
+        <Aparecer className="space-y-5">
           <p className="text-lg leading-relaxed text-cuerpo font-light">
             Soy{" "}
             <span className="font-medium text-titulo">Gretzalid Meléndez</span>,
@@ -34,10 +35,13 @@ const About = () => (
             adjunto de la Policlínica de Cabudare, donde contribuyo al cuidado
             de los más pequeños desde sus primeros días de vida.
           </p>
-        </div>
+        </Aparecer>
 
-        {/* Instagram */}
-        <div className="bg-superficie rounded-lg overflow-hidden shadow-sm border border-borde">
+        {/* Instagram, un instante después que la biografía */}
+        <Aparecer
+          retraso={0.08}
+          className="bg-superficie rounded-lg overflow-hidden shadow-sm border border-borde"
+        >
           <a
             href="https://www.instagram.com/gretpediatra"
             target="_blank"
@@ -87,7 +91,7 @@ const About = () => (
               <FiExternalLink className="text-sm transition-transform group-hover:translate-x-1" />
             </a>
           </div>
-        </div>
+        </Aparecer>
       </div>
     </div>
   </section>

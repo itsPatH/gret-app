@@ -2,11 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import clsx from "clsx";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
+  // react-scroll anima por su cuenta y no consulta la preferencia del sistema
+  const movimientoReducido = useReducedMotion();
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -94,8 +97,8 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 href={`#${link.to}`}
-                smooth={true}
-                duration={500}
+                smooth={!movimientoReducido}
+                duration={movimientoReducido ? 0 : 500}
                 offset={-80}
                 className="cursor-pointer text-sm font-medium text-suave hover:text-titulo transition-colors relative group"
               >
@@ -145,8 +148,8 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               href={`#${link.to}`}
-              smooth={true}
-              duration={500}
+              smooth={!movimientoReducido}
+              duration={movimientoReducido ? 0 : 500}
               offset={-80}
               onClick={() => setIsOpen(false)}
               className="block cursor-pointer text-suave hover:text-titulo transition-colors font-medium py-2"

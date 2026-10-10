@@ -1,5 +1,6 @@
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Image from "next/image";
+import { FotoAsentandose } from "./Movimiento";
 
 /**
  * Sin fotografía de fondo. El degradado de atardecer que había aquí era la
@@ -51,7 +52,7 @@ const Hero = () => (
           y sombra. El marco es blanco en ambos temas, como lo sería una foto
           de verdad sobre una mesa. */}
       <div className="order-1 md:order-2">
-        <figure className="m-0 w-full max-w-sm mx-auto bg-white p-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)]">
+        <FotoAsentandose className="m-0 w-full max-w-sm mx-auto bg-white p-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)]">
           <div className="relative aspect-square">
             {/* El archivo es el retrato completo tal como sale de
                 `npm run imagenes`; el encuadre lo decide object-position, así
@@ -66,7 +67,7 @@ const Hero = () => (
               className="object-cover object-[50%_18%]"
             />
           </div>
-        </figure>
+        </FotoAsentandose>
       </div>
     </div>
   </section>

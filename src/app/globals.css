@@ -75,8 +75,12 @@
   --accion-texto: #171320;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Solo si nadie pidió menos movimiento: los anclas del Hero y del menú
+   saltan de golpe con la preferencia activa. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
