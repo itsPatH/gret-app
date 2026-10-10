@@ -61,7 +61,7 @@ const ContactForm = () => {
   // dos columnas no dé un salto al enviarse el mensaje.
   if (isSubmitted) {
     return (
-      <div className="bg-superficie rounded-lg p-8 sm:p-10 shadow-sm border border-borde">
+      <div className="flex-1 flex flex-col justify-center bg-superficie rounded-lg p-6 shadow-sm border border-borde">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -89,7 +89,7 @@ const ContactForm = () => {
           transition={{ duration: ENTRADA.duracion, ease: ENTRADA.curva, delay: 0.08 }}
           viewport={ENTRADA.viewport}
           onSubmit={handleSubmit}
-          className="bg-superficie rounded-lg p-8 sm:p-10 shadow-sm border border-borde space-y-8"
+          className="flex-1 flex flex-col gap-4 bg-superficie rounded-lg p-6 shadow-sm border border-borde"
         >
           
           {/* Honeypot — hidden from real users, bots tend to fill every field */}
@@ -106,7 +106,7 @@ const ContactForm = () => {
 
           {/* Name Field */}
           <div className="group">
-            <label htmlFor="name" className="block text-sm font-medium text-cuerpo mb-3">
+            <label htmlFor="name" className="block text-sm font-medium text-cuerpo mb-2">
               Nombre completo
             </label>
             <div className="relative">
@@ -120,7 +120,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full pl-12 pr-4 py-4 border border-borde-fuerte rounded-md bg-campo text-cuerpo focus:bg-superficie focus:border-suave focus:outline-none transition-all duration-200 placeholder:text-tenue"
+                className="w-full pl-12 pr-4 py-3 border border-borde-fuerte rounded-md bg-campo text-cuerpo focus:bg-superficie focus:border-suave focus:outline-none transition-all duration-200 placeholder:text-tenue"
                 placeholder="Tu nombre completo"
               />
             </div>
@@ -128,7 +128,7 @@ const ContactForm = () => {
 
           {/* Email Field */}
           <div className="group">
-            <label htmlFor="email" className="block text-sm font-medium text-cuerpo mb-3">
+            <label htmlFor="email" className="block text-sm font-medium text-cuerpo mb-2">
               Correo electrónico
             </label>
             <div className="relative">
@@ -142,19 +142,21 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full pl-12 pr-4 py-4 border border-borde-fuerte rounded-md bg-campo text-cuerpo focus:bg-superficie focus:border-suave focus:outline-none transition-all duration-200 placeholder:text-tenue"
+                className="w-full pl-12 pr-4 py-3 border border-borde-fuerte rounded-md bg-campo text-cuerpo focus:bg-superficie focus:border-suave focus:outline-none transition-all duration-200 placeholder:text-tenue"
                 placeholder="tu@email.com"
               />
             </div>
           </div>
 
-          {/* Message Field */}
-          <div className="group">
-            <label htmlFor="message" className="block text-sm font-medium text-cuerpo mb-3">
+          {/* Message Field: es el único campo elástico. Ocupa el alto que
+              sobre para que la tarjeta acabe a la altura de las direcciones;
+              en móvil no sobra nada y se queda en su mínimo. */}
+          <div className="group flex-1 flex flex-col">
+            <label htmlFor="message" className="block text-sm font-medium text-cuerpo mb-2">
               Mensaje
             </label>
-            <div className="relative">
-              <div className="absolute left-4 top-4 text-tenue group-focus-within:text-suave transition-colors">
+            <div className="relative flex-1 flex flex-col">
+              <div className="absolute left-4 top-3.5 text-tenue group-focus-within:text-suave transition-colors">
                 <FiMessageCircle className="text-lg" />
               </div>
               <textarea
@@ -163,8 +165,8 @@ const ContactForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={5}
-                className="w-full pl-12 pr-4 py-4 border border-borde-fuerte rounded-md bg-campo text-cuerpo focus:bg-superficie focus:border-suave focus:outline-none transition-all duration-200 placeholder:text-tenue resize-none"
+                rows={3}
+                className="flex-1 min-h-24 w-full pl-12 pr-4 py-3 border border-borde-fuerte rounded-md bg-campo text-cuerpo focus:bg-superficie focus:border-suave focus:outline-none transition-all duration-200 placeholder:text-tenue resize-none"
                 placeholder="Cuéntame en qué puedo ayudarte..."
               />
             </div>
@@ -182,11 +184,11 @@ const ContactForm = () => {
           )}
 
           {/* Submit Button */}
-          <div className="pt-4">
+          <div>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-accion text-accion-texto rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-suave focus:ring-offset-2 transition-all duration-200 font-medium group disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full inline-flex items-center justify-center gap-3 px-8 py-3 bg-accion text-accion-texto rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-suave focus:ring-offset-2 transition-all duration-200 font-medium group disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>
@@ -202,27 +204,10 @@ const ContactForm = () => {
             </button>
           </div>
 
-          {/* Additional Info */}
-          <div className="pt-6 border-t border-borde">
-            <p className="text-sm text-suave text-center">
-              También puedes contactarme directamente por{" "}
-              <a
-                href="https://wa.me/584121176817"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 font-medium transition-colors"
-              >
-                WhatsApp
-              </a>
-              {" "}o{" "}
-              <a
-                href="mailto:gretpediatra@gmail.com"
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
-              >
-                email
-              </a>
-            </p>
-          </div>
+          {/* Sin la línea "También puedes contactarme por WhatsApp o email":
+              los dos enlaces ya están en el Hero y en el pie, y aquí costaba
+              casi 60 px de una tarjeta que tiene que caber junto a las
+              direcciones. */}
 
     </motion.form>
   );

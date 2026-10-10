@@ -9,7 +9,7 @@ import ContactForm from "./ContactForm/ContactForm";
  */
 const Visitame = () => (
   <section className="py-16 px-6">
-    <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2 lg:gap-14 items-start">
+    <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2 lg:gap-14">
       <div>
         <h2 className="text-3xl sm:text-4xl font-light text-titulo mb-3">
           Visítame
@@ -18,7 +18,9 @@ const Visitame = () => (
         <Location />
       </div>
 
-      <div>
+      {/* Las dos columnas se estiran a la misma altura y el formulario la
+          rellena, así que en escritorio termina a ras de la última dirección. */}
+      <div className="flex flex-col">
         <h2 className="text-3xl sm:text-4xl font-light text-titulo mb-3">
           Contáctame
         </h2>
