@@ -1,4 +1,5 @@
 import { IoLocationOutline, IoNavigateOutline } from "react-icons/io5";
+import { Aparecer } from "./Movimiento";
 
 const consultas = [
   {
@@ -15,11 +16,14 @@ const consultas = [
   },
 ];
 
+// 70 ms entre tarjetas: se leen como una lista que se coloca, no como dos
+// cajas que aparecen de golpe a la vez.
 const Location = () => (
   <div className="space-y-4">
-    {consultas.map((c) => (
-      <div
+    {consultas.map((c, i) => (
+      <Aparecer
         key={c.ciudad}
+        retraso={i * 0.07}
         className="bg-superficie border border-borde rounded-lg p-6 shadow-sm"
       >
         <div className="flex items-center gap-3 mb-4">
@@ -44,7 +48,7 @@ const Location = () => (
           <IoNavigateOutline className="text-sm transition-transform group-hover/btn:rotate-12" />
           Ver mapa
         </a>
-      </div>
+      </Aparecer>
     ))}
   </div>
 );

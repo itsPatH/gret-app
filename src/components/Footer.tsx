@@ -3,14 +3,16 @@
 import { SlSocialInstagram } from "react-icons/sl";
 import { FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { BiChevronUp } from "react-icons/bi";
 import { SiGithubsponsors } from "react-icons/si";
+import { ENTRADA } from "./Movimiento";
 
 
 const Footer = () => {
   const [showTopButton, setShowTopButton] = useState(false);
+  const movimientoReducido = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,17 +22,19 @@ const Footer = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // con movimiento reducido el salto es instantáneo: un desplazamiento largo
+  // y animado es justo lo que esa preferencia pide evitar
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: movimientoReducido ? "auto" : "smooth" });
   };
 
   return (
     <footer className="relative bg-superficie border-t border-borde text-cuerpo">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: ENTRADA.desplazamiento }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        transition={{ duration: ENTRADA.duracion, ease: ENTRADA.curva }}
+        viewport={ENTRADA.viewport}
         className="max-w-7xl mx-auto px-6 py-10 flex flex-col items-center gap-6 sm:flex-row sm:justify-between"
       >
 
