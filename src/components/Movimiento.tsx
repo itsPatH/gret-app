@@ -18,7 +18,7 @@ export const ENTRADA = {
 
 /**
  * Respeta prefers-reduced-motion en todo lo que esté debajo: con la
- * preferencia activa, framer-motion salta los desplazamientos y rotaciones
+ * preferencia activa, framer-motion salta los desplazamientos
  * directamente a su estado final y solo conserva los fundidos. Hay gente
  * que la activa por mareo o migraña.
  */
@@ -45,29 +45,4 @@ export const Aparecer = ({
   >
     {children}
   </motion.div>
-);
-
-/**
- * El retrato del Hero entra como una foto que se deja sobre la mesa: un
- * par de grados de giro que se asientan en cero.
- *
- * Sin fundido a propósito: es el elemento más grande de la primera pantalla
- * y Chrome no cuenta como pintado un elemento con opacidad cero, así que
- * hacerlo aparecer desde transparente retrasaría el LCP.
- */
-export const FotoAsentandose = ({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) => (
-  <motion.figure
-    className={className}
-    initial={{ rotate: -2.5, y: 10 }}
-    animate={{ rotate: 0, y: 0 }}
-    transition={{ duration: 0.7, ease: ENTRADA.curva, delay: 0.15 }}
-  >
-    {children}
-  </motion.figure>
 );

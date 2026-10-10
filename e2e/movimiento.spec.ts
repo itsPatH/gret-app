@@ -17,20 +17,14 @@ const PRIMERA_DIRECCION = "#visitame .rounded-lg.p-6";
 
 test.describe("con movimiento", () => {
   /**
-   * El retrato es lo más grande de la primera pantalla. Chrome no cuenta
-   * como pintado un elemento con opacidad cero, así que si entrara con
-   * fundido retrasaría el LCP: solo gira y baja, nunca es transparente.
+   * El retrato es lo más grande de la primera pantalla y no anima. Chrome no
+   * cuenta como pintado un elemento con opacidad cero, así que envolverlo en
+   * una entrada con fundido retrasaría el LCP.
    */
   test("el retrato no arranca transparente", async ({ page }) => {
     await page.goto("/");
     expect(await opacidad(page, RETRATO)).toBe("1");
-  });
-
-  test("el retrato se asienta en su posición final", async ({ page }) => {
-    await page.goto("/");
-    await expect
-      .poll(() => transform(page, RETRATO), { timeout: 3000 })
-      .toMatch(/^(none|matrix\(1, 0, 0, 1, 0, 0\))$/);
+    expect(IDENTIDAD).toContain(await transform(page, RETRATO));
   });
 
   test("las direcciones esperan a estar en pantalla para aparecer", async ({ page }) => {
@@ -55,18 +49,6 @@ test.describe("con movimiento reducido", () => {
       () => getComputedStyle(document.documentElement).scrollBehavior,
     );
     expect(comportamiento).toBe("auto");
-  });
-
-  /**
-   * Con movimiento normal el retrato espera 150 ms y tarda 700 en asentarse.
-   * Con la preferencia activa tiene que estar recto casi en cuanto React
-   * hidrata; medio segundo de margen separa con claridad los dos casos.
-   */
-  test("el retrato aparece ya recto, sin girar", async ({ page }) => {
-    await hidratado(page);
-    await expect
-      .poll(() => transform(page, RETRATO), { timeout: 500 })
-      .toMatch(/^(none|matrix\(1, 0, 0, 1, 0, 0\))$/);
   });
 
   test("el enlace del menú salta directo a la sección", async ({ page }, testInfo) => {
