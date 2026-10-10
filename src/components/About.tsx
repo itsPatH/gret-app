@@ -44,13 +44,15 @@ const About = () => (
             rel="noopener noreferrer"
             className="group block relative aspect-[4/3] overflow-hidden"
           >
+            {/* Foto vertical de móvil dentro de un hueco 4:3: centrada le
+                cortaría la cabeza, de ahí el 27%. */}
             <Image
-              src="/images/carousel3.jpg"
-              alt="Vista previa Instagram"
+              src="/images/instagram.jpg"
+              alt="La Dra. Gretzalid Meléndez con un bebé en brazos, frente al mural de la consulta"
               fill
               sizes="(min-width: 768px) 420px, calc(100vw - 3rem)"
               loading="lazy"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover object-[50%_27%] transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute top-4 right-4 w-10 h-10 bg-superficie/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <FiExternalLink className="text-cuerpo text-sm" />

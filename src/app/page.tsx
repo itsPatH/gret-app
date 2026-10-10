@@ -13,7 +13,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Physician",
   name: "Dra. Gretzalid Meléndez",
-  image: `${siteUrl}/images/profilephoto.jpg`,
+  image: `${siteUrl}/images/profile.jpg`,
   url: siteUrl,
   telephone: "+58-412-1176817",
   email: "gretpediatra@gmail.com",

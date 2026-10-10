@@ -53,13 +53,17 @@ const Hero = () => (
       <div className="order-1 md:order-2">
         <figure className="m-0 w-full max-w-sm mx-auto bg-white p-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)]">
           <div className="relative aspect-square">
+            {/* El archivo es el retrato completo tal como sale de
+                `npm run imagenes`; el encuadre lo decide object-position, así
+                que ajustarlo no obliga a reprocesar la imagen. 18% deja aire
+                sobre su cabeza y conserva el gesto de la mano. */}
             <Image
-              src="/images/profilephoto.jpg"
+              src="/images/profile.jpg"
               alt="Dra. Gretzalid Meléndez"
               fill
               priority
               sizes="(min-width: 768px) 420px, (min-width: 640px) 384px, 90vw"
-              className="object-cover"
+              className="object-cover object-[50%_18%]"
             />
           </div>
         </figure>
